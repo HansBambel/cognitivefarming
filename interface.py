@@ -44,24 +44,32 @@ class user_vars:
 
 user = user_vars()
 
-user_in = input("Hallo Farmboy, willst du Daten (L)aden, (A)nlegen, (U)pdaten? ")
-if user_in == "L" or user_in == "l":
-    user.load()
-    print("Geladen:")
-    user.print_all()
-elif user_in == "A" or user_in == "a":
-    user.new_user()
-    user.print_all()
-elif user_in == "U" or user_in == "u":
-    print("Was hat sich geändert?")
-    differ = input("(K)ultur, (S)chadbefall, (W)etter, (B)odenbeschaffung")
-    if differ == "k" or user_in == "K":
-        user.update_kultur(input("neue Kultur: "))
-    elif differ == "s" or user_in == "S":
-        user.update_schadbefall(input("neue Schadbefall: "))
-    elif differ == "w" or user_in == "W":
-        user.update_wetter(input("neues Wetter: "))
-    elif differ == "b" or user_in == "B":
-        user.update_bodenbeschaffenheit(input("neue Bodenbeschaffenheit: "))
-else:
-    print("Bye")
+user_in = input("Hallo Farmboy, willst du Daten (L)aden, (A)nlegen, (U)pdaten, (E)xit? ")
+while True:
+    ############## Load ###############
+    if user_in == "L" or user_in == "l":
+        user.load()
+        print("Geladen:")
+        user.print_all()
+    ############ Create ##############
+    elif user_in == "A" or user_in == "a":
+        user.new_user()
+        user.print_all()
+    ########### Update ##############
+    elif user_in == "U" or user_in == "u":
+        print("Was hat sich geändert?")
+        differ = input("(K)ultur, (S)chadbefall, (W)etter, (B)odenbeschaffung")
+        if differ == "k" or user_in == "K":
+            user.update_kultur(input("neue Kultur: "))
+        elif differ == "s" or user_in == "S":
+            user.update_schadbefall(input("neue Schadbefall: "))
+        elif differ == "w" or user_in == "W":
+            user.update_wetter(input("neues Wetter: "))
+        elif differ == "b" or user_in == "B":
+            user.update_bodenbeschaffenheit(input("neue Bodenbeschaffenheit: "))
+
+    ############ Exit ###############
+    elif user_in == "E" or user_in == "e":
+        break
+
+print("Bye")

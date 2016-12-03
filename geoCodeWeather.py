@@ -52,8 +52,8 @@ df = df.set_index(time)
      
 list(df)
 
-df.to_pickle('/home/juwinkler/hackathon/cognitivefarming/test.p')
-df.to_csv('/home/juwinkler/hackathon/cognitivefarming/test.csv')
+df.to_pickle('test.p')
+df.to_csv('test.csv')
 print(df)
 
 

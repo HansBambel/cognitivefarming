@@ -59,13 +59,18 @@ while True:
     elif user_in == "U" or user_in == "u":
         print("Was hat sich geändert?")
         differ = input("(K)ultur, (S)chadbefall, (W)etter, (B)odenbeschaffung")
+        # TODO Dropdown menus
         if differ == "k" or user_in == "K":
+            print("Insert dropdown Menu")
             user.update_kultur(input("neue Kultur: "))
         elif differ == "s" or user_in == "S":
+            print("Insert dropdown menu")
             user.update_schadbefall(input("neue Schadbefall: "))
         elif differ == "w" or user_in == "W":
+            print("insert dropdown menu")
             user.update_wetter(input("neues Wetter: "))
         elif differ == "b" or user_in == "B":
+            print("insert dropdown menu")
             user.update_bodenbeschaffenheit(input("neue Bodenbeschaffenheit: "))
 
     ############ Exit ###############

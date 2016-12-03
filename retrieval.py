@@ -56,14 +56,24 @@ def retrieveBefall(culture=None):
         befall = list(set(flattened))
         return befall
 
+def retrieveCultures():
+    # load database
+    database = pandas.read_pickle('database_python2.p')
+    product_list = database['Kultur'].apply(lambda x: x.split(', ')).tolist()
+    flattened = [val for sublist in product_list for val in sublist]
+    product_list = list(set(flattened))
+    return product_list
 
 # input: culture (e.g. Kartoffel)
 # culture = input("Welche Pflanzenkultur pflanzen Sie an? ")
 # disease = input("Welchen Befall haben Ihre Pflanzen? ")
 
 # product_list = retrieveSchutzmittel(culture, disease)
+
 # product_list = retrieveBefall("Futterrübe")
 # print(product_list)
+
+# print(retrieveCultures())
 
 #print(data)
 

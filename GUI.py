@@ -4,7 +4,6 @@ import retrieval
 class searchOptions:
     def __init__(self, master):
         self.master = master
-        # self.frame = Tk.frame(self.master)
         ####### Select Search options ##########
         self.kultur = StringVar(master)
         self.kultur.set("Futterrübe")
@@ -24,6 +23,9 @@ class searchOptions:
         self.kulturDropdown.grid(row=0, column=3)
         self.befallCheckbox.grid(row=1, column=1)
         self.befallDropdown.grid(row=1, column=3)
+
+    def getKultur(self):
+        return self.kultur
 
     def checkedBefall(self):
         # get possible Befall
@@ -52,33 +54,36 @@ class searchOptions:
                 self.befallDropdown["menu"].add_command(label=choice, command=lambda v=choice: self.befall.set(v))
             self.befall.set(self.befallDropdown["menu"].entrycget(0, "label"))
 
+
 def manageCropClick():
     ##### Open ManageCropWindow #####
+    # TODO
     print("lol")
 
+class queryWindow:
+    def __init__(self):
+        ##### Open QueryWindow #####
+        self.queryWindow = Toplevel()
+        self.queryWindow.title("Query")
+        self.queryWindow.geometry("500x200")
+
+        self.querySearchButton = Button(master=self.queryWindow, text="Search", command=self.searchQueryClick)
+
+        ##### arrangements #####
+        self.mySearchOptions = searchOptions(master=self.queryWindow)
+        self.querySearchButton.grid(row=5, column=2)
+
+
+
+    def searchQueryClick(self):
+        print("searching in cultures: ", self.mySearchOptions.kultur.get(), " for the following pests: ",
+              self.mySearchOptions.befall.get())
+        print(retrieval.retrieveSchutzmittel(culture=self.mySearchOptions.kultur.get(),
+                                             disease=self.mySearchOptions.befall.get()))
+
+
 def queryClick():
-    ##### Open QueryWindow #####
-    queryWindow = Toplevel()
-    queryWindow.title("Query")
-    queryWindow.geometry("500x200")
-
-
-    searchOpts = searchOptions(master=queryWindow)
-    querySearchButton = Button(master=queryWindow, text="Search", command=searchQueryClick)
-
-    ##### arrangements #####
-    # kulturLabel.grid(row=0, column=1)
-    # kulturDropdown.grid(row=0, column=3)
-    # befallCheckbox.grid(row=1, column=1)
-    # befallDropdown.grid(row=1, column=3)
-    # searchOpts.grid(row=0, column=0)
-    querySearchButton.grid(row=5, column=2)
-
-
-
-def searchQueryClick():
-    print("searching")
-
+    myQueryWindow = queryWindow()
 
 mainWindow = Tk()
 mainWindow.configure(background="black")

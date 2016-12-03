@@ -11,23 +11,22 @@ import numpy as np
 import pandas
 
 
-def retrieveSchutzmittel(culture=None, disease=None):
+def retrieveSchutzmittel(culture="", disease=""):
     # load database 
-    database = pandas.read_pickle('database_python2.p')
+    database = pandas.read_pickle('database.p')
 
-    if(culture != None):
+    if culture != None:
         
         # find all data connected to the selected culture
         data = database[database['Kultur'].str.contains(culture)]
-                        
         # if no disease is given return all applicable products
-        if(disease==None):
+        if disease == "":
             # find all products that can be applied to selected culture
             product_list = list(set(data['Name'].tolist()))
             return product_list
             
         else:
-            disease_data = database[database['Schadorganismus'].str.contains(disease)]
+            disease_data = data[data['Schadorganismus'].str.contains(disease)]
             products_to_disease = list(set(disease_data['Name'].tolist()))
             return products_to_disease
 
@@ -37,11 +36,11 @@ def retrieveSchutzmittel(culture=None, disease=None):
         return all_products
 
 
-def retrieveBefall(culture=None):
+def retrieveBefall(culture=""):
     # load database
-    database = pandas.read_pickle('database_python2.p')
+    database = pandas.read_pickle('database.p')
 
-    if (culture == None):
+    if (culture == ""):
         product_list = list(set(database['Schadorganismus'].tolist()))
         flattened = [val for sublist in product_list for val in sublist]
         product_list = list(set(flattened))
@@ -58,7 +57,7 @@ def retrieveBefall(culture=None):
 
 def retrieveCultures():
     # load database
-    database = pandas.read_pickle('database_python2.p')
+    database = pandas.read_pickle('database.p')
     product_list = database['Kultur'].apply(lambda x: x.split(', ')).tolist()
     flattened = [val for sublist in product_list for val in sublist]
     product_list = list(set(flattened))

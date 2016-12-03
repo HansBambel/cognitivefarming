@@ -78,3 +78,5 @@ def retrieveCultures():
 #print(data)
 
 #print('Sie können folgende Pflanzenschutzmittel benutzen: '+ data.Name)
+
+

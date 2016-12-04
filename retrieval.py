@@ -53,6 +53,7 @@ def retrieveBefall(culture=""):
         befall = list(set(flattened))
         return befall
 
+
 def retrieveCultures():
     # load database
     database = pandas.read_pickle('database.p')
@@ -60,8 +61,9 @@ def retrieveCultures():
     flattened = [val for sublist in product_list for val in sublist]
     product_list = list(set(flattened))
     return product_list
-    
-def retrieveProductInfo(product,culture,befall):
+
+
+def retrieveProductInfo(product, culture, befall):
     # load database
     database = pandas.read_pickle('database.p')
     
@@ -85,11 +87,12 @@ def retrieveProductInfo(product,culture,befall):
     bienenschutz = list(set(data['Bienenschutz'].tolist()))
     nutzorganismen = list(set(data['Nutzorganismen'].tolist()))
     sonstiges = list(set(data['Sonstiges'].tolist()))
-    gefahrenstoffverordnung = {'Anwenderschutz': anwenderschutz, 'Gewässerschutz': gewässerschutz, 'Bienenschutz': bienenschutz, 'Nutzorganismen': nutzorganismen, 'Sonstiges': sonstiges}
+    gefahrenstoffverordnung = {'Anwenderschutz': anwenderschutz, 'Gewässerschutz': gewässerschutz,
+                               'Bienenschutz': bienenschutz, 'Nutzorganismen': nutzorganismen, 'Sonstiges': sonstiges}
     
     hinweise = list(set(data['Anwendungshinweise'].tolist()))
     
-    return wirkstoff,wirkstoffgehalt,zulassungsende,gefahrenstoffverordnung,hinweise
+    return wirkstoff, wirkstoffgehalt, zulassungsende, gefahrenstoffverordnung, hinweise
 
     
 

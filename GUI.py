@@ -19,10 +19,10 @@ class searchOptions:
         self.befallCheckbox = Checkbutton(master=master, text="Befall", variable=self.checkvar,
                                      command=lambda: self.checkedBefall())
 
-        self.kulturLabel.grid(row=0, column=1, sticky=N+S+E+W)
-        self.kulturDropdown.grid(row=0, column=2, sticky=N+S+E+W)
-        self.befallCheckbox.grid(row=1, column=1, sticky=N+S+E+W)
-        self.befallDropdown.grid(row=1, column=2, sticky=N+S+E+W)
+        self.kulturLabel.grid(row=0, column=1)
+        self.kulturDropdown.grid(row=0, column=2)
+        self.befallCheckbox.grid(row=1, column=1)
+        self.befallDropdown.grid(row=1, column=2)
 
     def getKultur(self):
         return self.kultur
@@ -64,7 +64,7 @@ class queryWindow:
         self.queryWindow.configure(background="orange")
         self.queryWindow.focus()
         self.queryWindow.title("Anfrage")
-        self.queryWindow.geometry("800x300")
+        self.queryWindow.geometry("1200x600")
 
         self.querySearchButton = Button(master=self.queryWindow, text="Suchen", command=self.searchQueryClick)
         self.searchLabelFrame = LabelFrame(master=self.queryWindow, text="Suchergebnisse")
@@ -85,13 +85,38 @@ class queryWindow:
         infoProduct = self.searchResults.selection_get()
         kultur = self.mySearchOptions.kultur.get()
         befall = self.mySearchOptions.befall.get()
-        print()
+        wirkstoff, wirkstoffgehalt, zulassungsende, gefahrenstoffverordnung, hinweise \
+            = retrieval.retrieveProductInfo(infoProduct, kultur, befall)
         # TODO give to Judith's function
+        #### Create ProductInfoFrame ####
+        self.productInfoFrame = LabelFrame(master=self.queryWindow, text=infoProduct)
+        self.wirkstoffLabel = Label(master=self.productInfoFrame, text="Wirkstoff: " + ", ".join(wirkstoff))
+        self.wirkstoffGehaltLabel = Label(master=self.productInfoFrame, text="Wirkstoffgehalt: " + ", ".join(wirkstoffgehalt))
+        self.zulassungsendeLabel = Label(master=self.productInfoFrame, text="Zulassungsende: " + ", ".join(zulassungsende))
+        self.hinweiseLabel = Label(master=self.productInfoFrame, text="Hinweise: " + ", ".join(hinweise), wraplengt=200)
 
+        self.gefahrenstoffVerordnungLabelFrame = LabelFrame(master=self.productInfoFrame, text="Gefahrenstoffverordnung")
+        self.gefahrenbereichListbox = Listbox(master=self.gefahrenstoffVerordnungLabelFrame)
+        self.gefahrenbereichListbox.delete(0, END)
+        ### Liste alle gefahrenstoffberecihe auf ###
+        for i, bereich in enumerate(gefahrenstoffverordnung):
+            self.gefahrenbereichListbox.insert(i, bereich)
+        self.gefahrenbereichListbox.pack()
+
+
+        ### put in InfoFrame
+        self.wirkstoffLabel.pack()
+        self.wirkstoffGehaltLabel.pack()
+        self.zulassungsendeLabel.pack()
+        self.gefahrenstoffVerordnungLabelFrame.pack()
+        self.hinweiseLabel.pack()
+
+        ### put in queryWindow
+        self.productInfoFrame.grid(row=6, column=3, sticky=N+S+E+W)
 
     def searchQueryClick(self):
-        resLabel=("Suche nach Pflanzenschutzmitteln für folgende Kultur: "+ self.mySearchOptions.kultur.get()+
-              " mit folgenden Schadbefall: "+ self.mySearchOptions.befall.get())
+        resLabel=("Suche nach Pflanzenschutzmitteln für folgende Kultur: " + self.mySearchOptions.kultur.get() +
+              " mit folgenden Schadbefall: " + self.mySearchOptions.befall.get())
         self.resultLabel.configure(text=resLabel)
 
         results = retrieval.retrieveSchutzmittel(culture=self.mySearchOptions.kultur.get(),

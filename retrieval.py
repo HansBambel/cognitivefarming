@@ -89,8 +89,7 @@ def retrieveProductInfo(product,culture,befall):
     
     hinweise = list(set(data['Anwendungshinweise'].tolist()))
     
-    print(zulassungsende)
-    #return wirkstoff,wirkstoffgehalt,zulassungsende,gefahrenstoffverordnung,hinweise
+    return wirkstoff,wirkstoffgehalt,zulassungsende,gefahrenstoffverordnung,hinweise
 
     
 

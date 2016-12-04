@@ -5,8 +5,6 @@ Created on Fri Dec  2 15:53:56 2016
 
 @author: judith
 """
-
-import numpy as np
 #import string
 import pandas
 
@@ -15,7 +13,7 @@ def retrieveSchutzmittel(culture="", disease=""):
     # load database 
     database = pandas.read_pickle('database.p')
 
-    if culture != None:
+    if (culture != ""):
         
         # find all data connected to the selected culture
         data = database[database['Kultur'].str.contains(culture)]
@@ -62,6 +60,37 @@ def retrieveCultures():
     flattened = [val for sublist in product_list for val in sublist]
     product_list = list(set(flattened))
     return product_list
+    
+def retrieveProductInfo(product,culture,befall):
+    # load database
+    database = pandas.read_pickle('database.p')
+    
+    # find information to product
+    data = database[database['Name'].str.contains(product)]
+    
+    if(culture != ""):
+        data = data[data['Kultur'].str.contains(culture)]
+    
+    if(befall != ""):
+        data = data[data['Schadorganismus'].str.contains(befall)]
+    
+    # extract information
+    wirkstoff = data['Wirkstoff'].to_string()
+    wirkstoffgehalt = data['Wirkstoffgehalt'].to_string()
+    zulassungsende = data['Zulassungsende'].to_string()
+    
+    anwenderschutz = data['Anwenderschutz'].tolist()
+    gewässerschutz = data['Gewässerschutz'].tolist()
+    bienenschutz = data['Bienenschutz'].tolist()
+    nutzorganismen = data['Nutzorganismen'].tolist()
+    sonstiges = data['Sonstiges'].tolist()
+    gefahrenstoffverordnung = {'Anwenderschutz': anwenderschutz, 'Gewässerschutz': gewässerschutz, 'Bienenschutz': bienenschutz, 'Nutzorganismen': nutzorganismen, 'Sonstiges': sonstiges}
+    
+    hinweise = data['Anwendungshinweise'].to_string()
+    
+    return wirkstoff,wirkstoffgehalt,zulassungsende,gefahrenstoffverordnung,hinweise
+
+    
 
 # input: culture (e.g. Kartoffel)
 # culture = input("Welche Pflanzenkultur pflanzen Sie an? ")

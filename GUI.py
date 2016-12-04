@@ -61,8 +61,6 @@ class searchOptions:
             self.befall.set(self.befallDropdown["menu"].entrycget(0, "label"))
 
 
-
-
 class queryWindow:
     def __init__(self):
         ##### Open QueryWindow #####
@@ -164,6 +162,7 @@ class manageCropWindow:
     def __init__(self):
         self.manageCropWindow = Toplevel()
         self.manageCropWindow.focus()
+        self.manageCropWindow.configure(bg="orange")
         self.manageCropWindow.title("Planung der Ernte")
         self.manageCropWindow.geometry("600x400")
 

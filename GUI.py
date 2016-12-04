@@ -19,10 +19,10 @@ class searchOptions:
         self.befallCheckbox = Checkbutton(master=master, text="Befall", variable=self.checkvar,
                                      command=lambda: self.checkedBefall())
 
-        self.kulturLabel.grid(row=0, column=1)
-        self.kulturDropdown.grid(row=0, column=3)
-        self.befallCheckbox.grid(row=1, column=1)
-        self.befallDropdown.grid(row=1, column=3)
+        self.kulturLabel.grid(row=0, column=1, sticky=N+S+E+W)
+        self.kulturDropdown.grid(row=0, column=2, sticky=N+S+E+W)
+        self.befallCheckbox.grid(row=1, column=1, sticky=N+S+E+W)
+        self.befallDropdown.grid(row=1, column=2, sticky=N+S+E+W)
 
     def getKultur(self):
         return self.kultur
@@ -61,23 +61,48 @@ class queryWindow:
     def __init__(self):
         ##### Open QueryWindow #####
         self.queryWindow = Toplevel()
+        self.queryWindow.configure(background="orange")
         self.queryWindow.focus()
         self.queryWindow.title("Anfrage")
-        self.queryWindow.geometry("500x200")
+        self.queryWindow.geometry("800x300")
 
         self.querySearchButton = Button(master=self.queryWindow, text="Suchen", command=self.searchQueryClick)
+        self.searchLabelFrame = LabelFrame(master=self.queryWindow, text="Suchergebnisse")
+        self.resultLabel = Label(master=self.searchLabelFrame)
+        self.searchResults = Listbox(master=self.searchLabelFrame)
+        self.searchResults.bind("<Double-1>", lambda i: self.moreInfo(i))
 
         ##### arrangements #####
         self.mySearchOptions = searchOptions(master=self.queryWindow)
-        self.querySearchButton.grid(row=5, column=2)
+        self.querySearchButton.grid(row=5, column=2, sticky=N+S+E+W)
+        self.searchLabelFrame.grid(row=6, column=2, sticky=N+S+E+W)
 
+        ### in LabelFrame ###
+        self.resultLabel.pack()
+        self.searchResults.pack()
+
+    def moreInfo(self, infoProduct):
+        infoProduct = self.searchResults.selection_get()
+        kultur = self.mySearchOptions.kultur.get()
+        befall = self.mySearchOptions.befall.get()
+        print()
+        # TODO give to Judith's function
 
 
     def searchQueryClick(self):
-        print("Suche nach Pflanzenschutzmitteln für folgende Kultur: ", self.mySearchOptions.kultur.get(),
-              " mit folgenden Schadbefall: ", self.mySearchOptions.befall.get())
-        print(retrieval.retrieveSchutzmittel(culture=self.mySearchOptions.kultur.get(),
-                                             disease=self.mySearchOptions.befall.get()))
+        resLabel=("Suche nach Pflanzenschutzmitteln für folgende Kultur: "+ self.mySearchOptions.kultur.get()+
+              " mit folgenden Schadbefall: "+ self.mySearchOptions.befall.get())
+        self.resultLabel.configure(text=resLabel)
+
+        results = retrieval.retrieveSchutzmittel(culture=self.mySearchOptions.kultur.get(),
+                                             disease=self.mySearchOptions.befall.get())
+
+        self.searchResults.delete(0, END)
+        for i, result in enumerate(results):
+            self.searchResults.insert(i, result)
+
+        self.resultLabel.pack()
+        self.searchResults.pack(fill=BOTH)
 
 
 class manageCropWindow:
@@ -98,8 +123,10 @@ def manageCropClick():
 
 mainWindow = Tk()
 mainWindow.configure(background="orange")
-mainWindow.title("Crop Planner")
+mainWindow.title("Amazone Helfer")
 mainWindow.geometry("400x240")
+logo = PhotoImage(file="amazone-touch-icon-144px.gif")
+w1 = Label(mainWindow, image=logo).pack(side="bottom")
 
 manageCropButton = Button(master=mainWindow, text="Ernte planen", command=manageCropClick)
 queryButton = Button(master=mainWindow, text="Pflanzenschutzregularien prüfen", command=queryClick)

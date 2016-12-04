@@ -77,6 +77,7 @@ def retrieveProductInfo(product,culture,befall):
     # extract information
     wirkstoff = list(set(data['Wirkstoff'].tolist()))
     wirkstoffgehalt = list(set(data['Wirkstoffgehalt'].tolist()))
+    #zulassungsende = list(set(data['Zulassungsende'].tolist()))
     zulassungsende = list(set(data['Zulassungsende'].tolist()))
     
     anwenderschutz = list(set(data['Anwenderschutz'].tolist()))
@@ -88,7 +89,8 @@ def retrieveProductInfo(product,culture,befall):
     
     hinweise = list(set(data['Anwendungshinweise'].tolist()))
     
-    return wirkstoff,wirkstoffgehalt,zulassungsende,gefahrenstoffverordnung,hinweise
+    print(zulassungsende)
+    #return wirkstoff,wirkstoffgehalt,zulassungsende,gefahrenstoffverordnung,hinweise
 
     
 

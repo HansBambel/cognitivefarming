@@ -68,22 +68,22 @@ class queryWindow:
     def __init__(self):
         ##### Open QueryWindow #####
         bgcolor = "orange"
-        highlightcolor = "green"
         self.queryWindow = Toplevel()
         self.queryWindow.configure(background=bgcolor)
         self.queryWindow.focus()
         self.queryWindow.title("Anfrage")
         self.queryWindow.geometry("1400x600")
 
+        ### creation of widgets ###
         self.querySearchButton = Button(master=self.queryWindow, text="Suchen", command=self.searchQueryClick)
         self.searchLabelFrame = LabelFrame(master=self.queryWindow, text="Suchergebnisse")
         self.resultLabel = Label(master=self.searchLabelFrame, wraplengt=200)
         self.searchResults = Listbox(master=self.searchLabelFrame)
-        self.searchResults.bind("<Double-1>", lambda i: self.getProductInfo(i))
+        self.searchResults.bind("<Double-1>", lambda i: self.getProductInfo(i))     # on doubleclick on ListBox-entry
         self.weatherLabel = Label(master=self.queryWindow, text=wetter_warnung.wetter_check(), wraplengt=200, bg=bgcolor)
+        self.mySearchOptions = searchOptions(master=self.queryWindow)
 
         ##### arrangements #####
-        self.mySearchOptions = searchOptions(master=self.queryWindow)
         self.weatherLabel.grid(row=1, column=3, sticky=E+W)
         self.querySearchButton.grid(row=5, column=2, sticky=N+S+E+W)
         self.searchLabelFrame.grid(row=6, column=2, sticky=N+E+W)
@@ -114,7 +114,6 @@ class queryWindow:
         self.gefahrenbereichListbox.pack()
         self.gefahrenbereichListbox.bind("<Double-1>", lambda j: self.getBereichsinfo(j))
 
-
         ### put in InfoFrame
         self.wirkstoffLabel.pack()
         self.wirkstoffGehaltLabel.pack()
@@ -140,31 +139,31 @@ class queryWindow:
         self.gefahrenbereichLabelFrame.grid(row=6, column=4, sticky=N+S+E+W)
 
     def getRegularie(self, val):
+        # get the Info of the abbreviated regulation
         reg = self.bereichListbox.selection_get()
         regString = retrieveRankFunction.retrieveRankFunction(reg)
-        # regString = "Philipp. Sprech doch mal endlich Hochdeutsch, du komischer Bayer. Am anderen Tisch gibt es viel bessere Hochdeutschsprechende Menschen."
 
         self.regFrame = LabelFrame(master=self.queryWindow, text=reg)
         self.regLabel = Label(master=self.regFrame, text=regString, wraplengt=250)
         self.speakButton = Button(master=self.regFrame, text="Vorlesen", command=lambda: self.readWatson(regString))
-
+        ### put things in regFrame ###
         self.regLabel.pack()
         self.speakButton.pack()
-
+        ### put regFrame in queryWindow ###
         self.regFrame.grid(row=6, column=5, sticky=N+W+E)
 
     def readWatson(self, stringToRead):
         textToSpeech.say_text(stringToRead)
-
 
     def searchQueryClick(self):
         resLabel=("Suche nach Pflanzenschutzmitteln für folgende Kultur: " + self.mySearchOptions.kultur.get() +
               " mit folgenden Schadbefall: " + self.mySearchOptions.befall.get())
         self.resultLabel.configure(text=resLabel)
 
+        ### using the currently selected culture and pest we get the Product to use ###
         results = retrieval.retrieveSchutzmittel(culture=self.mySearchOptions.kultur.get(),
                                              disease=self.mySearchOptions.befall.get())
-
+        ### add all Products to ListBox
         self.searchResults.delete(0, END)
         for i, result in enumerate(results):
             self.searchResults.insert(i, result)
@@ -173,32 +172,33 @@ class queryWindow:
         self.searchResults.pack(fill=BOTH)
 
 
+''' This Window is only a dummy for now'''
 class manageCropWindow:
     def __init__(self):
         self.manageCropWindow = Toplevel()
         self.manageCropWindow.focus()
-        image = PhotoImage(file="pantera.gif")
-        w1 = Label(self.manageCropWindow, image=image).pack()
         self.manageCropWindow.configure(bg="orange")
         self.manageCropWindow.title("Planung der Ernte")
         self.manageCropWindow.geometry("600x400")
 
 def queryClick():
     ##### Open QueryWindow #####
-    myQueryWindow = queryWindow()
+    queryWindow()
 
 def manageCropClick():
     ##### Open ManageCropWindow #####
-    myManageCropWindow = manageCropWindow()
+    manageCropWindow()
 
 
+#### Main Window ####
 mainWindow = Tk()
 mainWindow.configure(background="orange")
 mainWindow.title("Amazone Helfer")
 mainWindow.geometry("400x240")
 logo = PhotoImage(file="amazone-touch-icon-144px.gif")
-w1 = Label(mainWindow, image=logo).pack(side="bottom")
+Label(mainWindow, image=logo).pack(side="bottom")
 
+# Depending on which Button pressed start new Window
 manageCropButton = Button(master=mainWindow, text="Ernte planen", command=manageCropClick)
 queryButton = Button(master=mainWindow, text="Pflanzenschutzregularien prüfen", command=queryClick)
 

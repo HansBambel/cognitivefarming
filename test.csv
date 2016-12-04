@@ -1,44 +1,42 @@
-,wspd,fcst_valid,phrase_12char,pop,wdir_cardinal,expire_time_gmt,rh,qualifier,class,precip_type,icon_extd,clds,wdir,phrase_22char,dow,num,qualifier_code,daypart_name,icon_code,subphrase_pt2,phrase_32char,temp,subphrase_pt1,fcst_valid_local,subphrase_pt3
-2016-12-03 07:00:00,4,1480744800,P Cloudy,0,SW,1480760605,92,,fod_long_range_intraday,precip,3000,67,217,Partly Cloudy,Saturday,1,,Morning,30,Cloudy,Partly Cloudy,1,Partly,2016-12-03T07:00:00+0100,
-2016-12-03 13:00:00,5,1480766400,P Cloudy,8,SSW,1480760605,89,,fod_long_range_intraday,precip,3000,36,212,Partly Cloudy,Saturday,2,,Afternoon,30,Cloudy,Partly Cloudy,2,Partly,2016-12-03T13:00:00+0100,
-2016-12-03 19:00:00,3,1480788000,Clear,9,SE,1480760605,99,Widespread frost likely.,fod_long_range_intraday,precip,3100,8,125,Clear,Saturday,3,,Evening,31,,Clear,-1,Clear,2016-12-03T19:00:00+0100,
-2016-12-04 01:00:00,3,1480809600,P Cloudy,9,E,1480760605,99,Hard freeze expected.,fod_long_range_intraday,precip,2900,29,100,Partly Cloudy,Sunday,4,,Overnight,29,Cloudy,Partly Cloudy,-3,Partly,2016-12-04T01:00:00+0100,
-2016-12-04 07:00:00,7,1480831200,P Cloudy,6,E,1480760605,88,,fod_long_range_intraday,precip,3000,22,85,Partly Cloudy,Sunday,5,,Morning,30,Cloudy,Partly Cloudy,-2,Partly,2016-12-04T07:00:00+0100,
-2016-12-04 13:00:00,9,1480852800,Sunny,4,E,1480760605,76,,fod_long_range_intraday,precip,3200,2,82,Sunny,Sunday,6,,Afternoon,32,,Sunny,0,Sunny,2016-12-04T13:00:00+0100,
-2016-12-04 19:00:00,7,1480874400,Clear,4,E,1480760605,74,Hard freeze expected.,fod_long_range_intraday,precip,3100,1,100,Clear,Sunday,7,,Evening,31,,Clear,-3,Clear,2016-12-04T19:00:00+0100,
-2016-12-05 01:00:00,4,1480896000,Clear,2,ESE,1480760605,66,Hard freeze expected.,fod_long_range_intraday,snow,3100,3,109,Clear,Monday,8,,Overnight,31,,Clear,-4,Clear,2016-12-05T01:00:00+0100,
-2016-12-05 07:00:00,4,1480917600,Sunny,2,SE,1480760605,58,,fod_long_range_intraday,precip,3200,1,145,Sunny,Monday,9,,Morning,32,,Sunny,-3,Sunny,2016-12-05T07:00:00+0100,
-2016-12-05 13:00:00,3,1480939200,Sunny,0,S,1480760605,47,,fod_long_range_intraday,precip,3200,2,190,Sunny,Monday,10,,Afternoon,32,,Sunny,0,Sunny,2016-12-05T13:00:00+0100,
-2016-12-05 19:00:00,5,1480960800,Clear,0,SSW,1480760605,59,Hard freeze expected.,fod_long_range_intraday,precip,3100,3,203,Clear,Monday,11,,Evening,31,,Clear,-3,Clear,2016-12-05T19:00:00+0100,
-2016-12-06 01:00:00,3,1480982400,Clear,2,SSW,1480760605,67,Hard freeze expected.,fod_long_range_intraday,precip,3100,14,199,Clear,Tuesday,12,,Overnight,31,,Clear,-3,Clear,2016-12-06T01:00:00+0100,
-2016-12-06 07:00:00,5,1481004000,P Cloudy,2,S,1480760605,66,,fod_long_range_intraday,precip,3000,41,169,Partly Cloudy,Tuesday,13,,Morning,30,Cloudy,Partly Cloudy,-1,Partly,2016-12-06T07:00:00+0100,
-2016-12-06 13:00:00,5,1481025600,Cloudy,4,SSE,1480760605,64,,fod_long_range_intraday,precip,2600,73,153,Cloudy,Tuesday,14,,Afternoon,26,,Cloudy,2,Cloudy,2016-12-06T13:00:00+0100,
-2016-12-06 19:00:00,6,1481047200,Cloudy,6,SE,1480760605,75,,fod_long_range_intraday,precip,2600,84,127,Cloudy,Tuesday,15,,Evening,26,,Cloudy,1,Cloudy,2016-12-06T19:00:00+0100,
-2016-12-07 01:00:00,7,1481068800,P Cloudy,6,SE,1480760605,86,,fod_long_range_intraday,precip,2900,58,143,Partly Cloudy,Wednesday,16,,Overnight,29,Cloudy,Partly Cloudy,1,Partly,2016-12-07T01:00:00+0100,
-2016-12-07 07:00:00,11,1481090400,P Cloudy,10,SSE,1480760605,86,,fod_long_range_intraday,precip,3000,62,163,Partly Cloudy,Wednesday,17,,Morning,30,Cloudy,Partly Cloudy,2,Partly,2016-12-07T07:00:00+0100,
-2016-12-07 13:00:00,13,1481112000,M Cloudy,24,S,1480760605,84,,fod_long_range_intraday,rain,2800,71,187,Mostly Cloudy,Wednesday,18,,Afternoon,28,Cloudy,Mostly Cloudy,5,Mostly,2016-12-07T13:00:00+0100,
-2016-12-07 19:00:00,17,1481133600,Showers,41,SSW,1480760605,90,,fod_long_range_intraday,rain,1100,83,200,Showers,Wednesday,19,,Evening,11,,Showers,5,Showers,2016-12-07T19:00:00+0100,
-2016-12-08 01:00:00,19,1481155200,Cloudy,13,SSW,1480760605,89,,fod_long_range_intraday,rain,2600,75,210,Cloudy,Thursday,20,,Overnight,26,,Cloudy,6,Cloudy,2016-12-08T01:00:00+0100,
-2016-12-08 07:00:00,22,1481176800,Showers,45,SW,1480760605,88,,fod_long_range_intraday,rain,1100,94,218,Showers,Thursday,21,,Morning,11,,Showers,7,Showers,2016-12-08T07:00:00+0100,
-2016-12-08 13:00:00,22,1481198400,Showers,56,SW,1480760605,89,,fod_long_range_intraday,rain,1100,96,233,Showers,Thursday,22,,Afternoon,11,,Showers,9,Showers,2016-12-08T13:00:00+0100,
-2016-12-08 19:00:00,19,1481220000,Few Showers,32,WSW,1480760605,92,,fod_long_range_intraday,rain,4600,96,245,Few Showers,Thursday,23,,Evening,11,Showers,Few Showers,8,Few,2016-12-08T19:00:00+0100,
-2016-12-09 01:00:00,19,1481241600,Cloudy,24,WSW,1480760605,92,,fod_long_range_intraday,rain,2600,95,241,Cloudy,Friday,24,,Overnight,26,,Cloudy,8,Cloudy,2016-12-09T01:00:00+0100,
-2016-12-09 07:00:00,21,1481263200,Cloudy,13,SW,1480760605,93,,fod_long_range_intraday,rain,2600,95,230,Cloudy,Friday,25,,Morning,26,,Cloudy,8,Cloudy,2016-12-09T07:00:00+0100,
-2016-12-09 13:00:00,22,1481284800,Cloudy,16,SW,1480760605,86,,fod_long_range_intraday,rain,2600,92,232,Cloudy,Friday,26,,Afternoon,26,,Cloudy,9,Cloudy,2016-12-09T13:00:00+0100,
-2016-12-09 19:00:00,19,1481306400,Light Rain,69,WSW,1480760605,86,,fod_long_range_intraday,rain,1201,91,237,Light Rain,Friday,27,,Evening,11,Rain,Light Rain,9,Light,2016-12-09T19:00:00+0100,
-2016-12-10 01:00:00,17,1481328000,Light Rain,68,WSW,1480760605,91,,fod_long_range_intraday,rain,1201,97,240,Light Rain,Saturday,28,,Overnight,11,Rain,Light Rain,8,Light,2016-12-10T01:00:00+0100,
-2016-12-10 07:00:00,19,1481349600,Cloudy,24,WSW,1480760605,93,,fod_long_range_intraday,rain,2600,93,241,Cloudy,Saturday,29,,Morning,26,,Cloudy,9,Cloudy,2016-12-10T07:00:00+0100,
-2016-12-10 13:00:00,20,1481371200,Cloudy,20,WSW,1480760605,88,,fod_long_range_intraday,rain,2600,89,239,Cloudy,Saturday,30,,Afternoon,26,,Cloudy,9,Cloudy,2016-12-10T13:00:00+0100,
-2016-12-10 19:00:00,15,1481392800,Showers,50,SW,1480760605,94,,fod_long_range_intraday,rain,1100,92,235,Showers,Saturday,31,,Evening,11,,Showers,8,Showers,2016-12-10T19:00:00+0100,
-2016-12-11 01:00:00,14,1481414400,Showers,49,SW,1480760605,93,,fod_long_range_intraday,rain,1100,93,229,Showers,Sunday,32,,Overnight,11,,Showers,8,Showers,2016-12-11T01:00:00+0100,
-2016-12-11 07:00:00,20,1481436000,Showers,54,SW,1480760605,89,,fod_long_range_intraday,rain,1100,93,220,Showers,Sunday,33,,Morning,11,,Showers,8,Showers,2016-12-11T07:00:00+0100,
-2016-12-11 13:00:00,22,1481457600,Showers,52,SW,1480760605,83,,fod_long_range_intraday,rain,1100,93,234,Showers,Sunday,34,,Afternoon,11,,Showers,9,Showers,2016-12-11T13:00:00+0100,
-2016-12-11 19:00:00,22,1481479200,Showers,59,WSW,1480760605,85,,fod_long_range_intraday,rain,1100,93,237,Showers,Sunday,35,,Evening,11,,Showers,9,Showers,2016-12-11T19:00:00+0100,
-2016-12-12 01:00:00,23,1481500800,Light Rain,60,WSW,1480760605,87,,fod_long_range_intraday,rain,1201,91,240,Light Rain,Monday,36,,Overnight,11,Rain,Light Rain,8,Light,2016-12-12T01:00:00+0100,
-2016-12-12 07:00:00,25,1481522400,Showers,54,WSW,1480760605,85,,fod_long_range_intraday,rain,1100,76,255,Showers,Monday,37,,Morning,11,,Showers,7,Showers,2016-12-12T07:00:00+0100,
-2016-12-12 13:00:00,24,1481544000,Few Showers,34,WSW,1480760605,78,,fod_long_range_intraday,rain,4600,68,257,Few Showers,Monday,38,,Afternoon,11,Showers,Few Showers,7,Few,2016-12-12T13:00:00+0100,
-2016-12-12 19:00:00,16,1481565600,M Cloudy,24,WSW,1480760605,84,,fod_long_range_intraday,rain,2700,68,255,Mostly Cloudy,Monday,39,,Evening,27,Cloudy,Mostly Cloudy,5,Mostly,2016-12-12T19:00:00+0100,
-2016-12-13 01:00:00,14,1481587200,Showers,54,WSW,1480760605,83,,fod_long_range_intraday,rain,1100,55,253,Showers,Tuesday,40,,Overnight,11,,Showers,5,Showers,2016-12-13T01:00:00+0100,
-2016-12-13 07:00:00,16,1481608800,Showers,45,SW,1480760605,80,,fod_long_range_intraday,rain,1100,54,222,Showers,Tuesday,41,,Morning,11,,Showers,6,Showers,2016-12-13T07:00:00+0100,
-2016-12-13 13:00:00,17,1481630400,Showers,40,SW,1480760605,77,,fod_long_range_intraday,rain,1100,55,218,Showers,Tuesday,42,,Afternoon,11,,Showers,7,Showers,2016-12-13T13:00:00+0100,
-2016-12-13 19:00:00,15,1481652000,P Cloudy,13,SW,1480760605,83,,fod_long_range_intraday,rain,2900,53,220,Partly Cloudy,Tuesday,43,,Evening,29,Cloudy,Partly Cloudy,5,Partly,2016-12-13T19:00:00+0100,
+,fcst_valid,phrase_32char,expire_time_gmt,precip_type,pop,phrase_22char,subphrase_pt2,qualifier,icon_extd,temp,fcst_valid_local,num,daypart_name,wdir_cardinal,subphrase_pt3,wdir,phrase_12char,clds,wspd,rh,qualifier_code,icon_code,class,dow,subphrase_pt1
+2016-12-04 19:00:00,1480874400,Clear,1480864495,precip,2,Clear,,Hard freeze expected.,3100,-1,2016-12-04T19:00:00+0100,1,Evening,ESE,,107,Clear,6,8,65,,31,fod_long_range_intraday,Sunday,Clear
+2016-12-05 01:00:00,1480896000,Clear,1480864495,snow,1,Clear,,Hard freeze expected.,3100,-4,2016-12-05T01:00:00+0100,2,Overnight,SE,,129,Clear,0,5,63,,31,fod_long_range_intraday,Monday,Clear
+2016-12-05 07:00:00,1480917600,Sunny,1480864495,precip,1,Sunny,,,3200,-3,2016-12-05T07:00:00+0100,3,Morning,SSE,,147,Sunny,0,4,56,,32,fod_long_range_intraday,Monday,Sunny
+2016-12-05 13:00:00,1480939200,Sunny,1480864495,precip,0,Sunny,,,3200,1,2016-12-05T13:00:00+0100,4,Afternoon,S,,174,Sunny,0,3,49,,32,fod_long_range_intraday,Monday,Sunny
+2016-12-05 19:00:00,1480960800,Clear,1480864495,precip,2,Clear,,Hard freeze expected.,3100,-3,2016-12-05T19:00:00+0100,5,Evening,S,,183,Clear,0,4,68,,31,fod_long_range_intraday,Monday,Clear
+2016-12-06 01:00:00,1480982400,Clear,1480864495,precip,5,Clear,,Hard freeze expected.,3100,-4,2016-12-06T01:00:00+0100,6,Overnight,S,,186,Clear,5,3,76,,31,fod_long_range_intraday,Tuesday,Clear
+2016-12-06 07:00:00,1481004000,Partly Cloudy,1480864495,precip,5,Partly Cloudy,Cloudy,,3000,-2,2016-12-06T07:00:00+0100,7,Morning,SSE,,165,P Cloudy,31,5,77,,30,fod_long_range_intraday,Tuesday,Partly
+2016-12-06 13:00:00,1481025600,Partly Cloudy,1480864495,precip,3,Partly Cloudy,Cloudy,,3000,1,2016-12-06T13:00:00+0100,8,Afternoon,SSE,,164,P Cloudy,48,5,68,,30,fod_long_range_intraday,Tuesday,Partly
+2016-12-06 19:00:00,1481047200,Cloudy,1480864495,precip,4,Cloudy,,,2600,0,2016-12-06T19:00:00+0100,9,Evening,SE,,128,Cloudy,75,6,76,,26,fod_long_range_intraday,Tuesday,Cloudy
+2016-12-07 01:00:00,1481068800,Mostly Cloudy,1480864495,precip,4,Mostly Cloudy,Cloudy,,2700,0,2016-12-07T01:00:00+0100,10,Overnight,SSE,,149,M Cloudy,75,7,80,,27,fod_long_range_intraday,Wednesday,Mostly
+2016-12-07 07:00:00,1481090400,Cloudy,1480864495,precip,4,Cloudy,,,2600,2,2016-12-07T07:00:00+0100,11,Morning,S,,180,Cloudy,79,12,80,,26,fod_long_range_intraday,Wednesday,Cloudy
+2016-12-07 13:00:00,1481112000,Partly Cloudy,1480864495,precip,7,Partly Cloudy,Cloudy,,3000,4,2016-12-07T13:00:00+0100,12,Afternoon,SSW,,202,P Cloudy,40,14,81,,30,fod_long_range_intraday,Wednesday,Partly
+2016-12-07 19:00:00,1481133600,Partly Cloudy,1480864495,precip,7,Partly Cloudy,Cloudy,,2900,3,2016-12-07T19:00:00+0100,13,Evening,SSW,,205,P Cloudy,44,15,87,,29,fod_long_range_intraday,Wednesday,Partly
+2016-12-08 01:00:00,1481155200,Cloudy,1480864495,precip,6,Cloudy,,,2600,4,2016-12-08T01:00:00+0100,14,Overnight,SSW,,210,Cloudy,81,16,81,,26,fod_long_range_intraday,Thursday,Cloudy
+2016-12-08 07:00:00,1481176800,Cloudy,1480864495,rain,10,Cloudy,,,2600,5,2016-12-08T07:00:00+0100,15,Morning,SSW,,213,Cloudy,79,21,75,,26,fod_long_range_intraday,Thursday,Cloudy
+2016-12-08 13:00:00,1481198400,Mostly Cloudy,1480864495,rain,7,Mostly Cloudy,Cloudy,,2800,7,2016-12-08T13:00:00+0100,16,Afternoon,SW,,224,M Cloudy,74,21,68,,28,fod_long_range_intraday,Thursday,Mostly
+2016-12-08 19:00:00,1481220000,Cloudy,1480864495,rain,12,Cloudy,,,2600,6,2016-12-08T19:00:00+0100,17,Evening,SW,,229,Cloudy,87,17,77,,26,fod_long_range_intraday,Thursday,Cloudy
+2016-12-09 01:00:00,1481241600,Mostly Cloudy,1480864495,rain,16,Mostly Cloudy,Cloudy,,2700,5,2016-12-09T01:00:00+0100,18,Overnight,SW,,232,M Cloudy,70,14,90,,27,fod_long_range_intraday,Friday,Mostly
+2016-12-09 07:00:00,1481263200,Cloudy,1480864495,rain,15,Cloudy,,,2600,6,2016-12-09T07:00:00+0100,19,Morning,SW,,228,Cloudy,94,18,97,,26,fod_long_range_intraday,Friday,Cloudy
+2016-12-09 13:00:00,1481284800,Cloudy,1480864495,rain,23,Cloudy,,,2600,8,2016-12-09T13:00:00+0100,20,Afternoon,SW,,228,Cloudy,98,18,93,,26,fod_long_range_intraday,Friday,Cloudy
+2016-12-09 19:00:00,1481306400,Cloudy,1480864495,rain,22,Cloudy,,,2600,7,2016-12-09T19:00:00+0100,21,Evening,SW,,222,Cloudy,90,17,92,,26,fod_long_range_intraday,Friday,Cloudy
+2016-12-10 01:00:00,1481328000,Cloudy,1480864495,rain,14,Cloudy,,,2600,6,2016-12-10T01:00:00+0100,22,Overnight,SW,,221,Cloudy,81,16,90,,26,fod_long_range_intraday,Saturday,Cloudy
+2016-12-10 07:00:00,1481349600,Cloudy,1480864495,rain,16,Cloudy,,,2600,6,2016-12-10T07:00:00+0100,23,Morning,SW,,223,Cloudy,94,17,93,,26,fod_long_range_intraday,Saturday,Cloudy
+2016-12-10 13:00:00,1481371200,Cloudy,1480864495,rain,24,Cloudy,,,2600,8,2016-12-10T13:00:00+0100,24,Afternoon,SW,,232,Cloudy,97,17,93,,26,fod_long_range_intraday,Saturday,Cloudy
+2016-12-10 19:00:00,1481392800,Cloudy,1480864495,rain,24,Cloudy,,,2600,7,2016-12-10T19:00:00+0100,25,Evening,SW,,228,Cloudy,97,12,98,,26,fod_long_range_intraday,Saturday,Cloudy
+2016-12-11 01:00:00,1481414400,Cloudy,1480864495,rain,13,Cloudy,,,2600,6,2016-12-11T01:00:00+0100,26,Overnight,SW,,218,Cloudy,95,14,96,,26,fod_long_range_intraday,Sunday,Cloudy
+2016-12-11 07:00:00,1481436000,Showers,1480864495,rain,40,Showers,,,1100,6,2016-12-11T07:00:00+0100,27,Morning,SW,,215,Showers,82,17,91,,11,fod_long_range_intraday,Sunday,Showers
+2016-12-11 13:00:00,1481457600,Partly Cloudy,1480864495,rain,24,Partly Cloudy,Cloudy,,3000,7,2016-12-11T13:00:00+0100,28,Afternoon,SW,,226,P Cloudy,58,18,85,,30,fod_long_range_intraday,Sunday,Partly
+2016-12-11 19:00:00,1481479200,Mostly Cloudy,1480864495,rain,20,Mostly Cloudy,Cloudy,,2700,6,2016-12-11T19:00:00+0100,29,Evening,SW,,232,M Cloudy,69,16,89,,27,fod_long_range_intraday,Sunday,Mostly
+2016-12-12 01:00:00,1481500800,Mostly Cloudy,1480864495,rain,24,Mostly Cloudy,Cloudy,,2700,6,2016-12-12T01:00:00+0100,30,Overnight,SW,,234,M Cloudy,72,16,93,,27,fod_long_range_intraday,Monday,Mostly
+2016-12-12 07:00:00,1481522400,Showers,1480864495,rain,40,Showers,,,1100,7,2016-12-12T07:00:00+0100,31,Morning,SW,,234,Showers,84,20,94,,11,fod_long_range_intraday,Monday,Showers
+2016-12-12 13:00:00,1481544000,Few Showers,1480864495,rain,32,Few Showers,Showers,,4600,8,2016-12-12T13:00:00+0100,32,Afternoon,WSW,,245,Few Showers,91,22,86,,11,fod_long_range_intraday,Monday,Few
+2016-12-12 19:00:00,1481565600,Showers,1480864495,rain,48,Showers,,,1100,7,2016-12-12T19:00:00+0100,33,Evening,WSW,,249,Showers,91,19,88,,11,fod_long_range_intraday,Monday,Showers
+2016-12-13 01:00:00,1481587200,Showers,1480864495,rain,40,Showers,,,1100,6,2016-12-13T01:00:00+0100,34,Overnight,WSW,,249,Showers,89,16,90,,11,fod_long_range_intraday,Tuesday,Showers
+2016-12-13 07:00:00,1481608800,Cloudy,1480864495,rain,24,Cloudy,,,2600,6,2016-12-13T07:00:00+0100,35,Morning,WSW,,242,Cloudy,90,16,88,,26,fod_long_range_intraday,Tuesday,Cloudy
+2016-12-13 13:00:00,1481630400,Few Showers,1480864495,rain,30,Few Showers,Showers,,4600,7,2016-12-13T13:00:00+0100,36,Afternoon,WSW,,246,Few Showers,88,17,82,,11,fod_long_range_intraday,Tuesday,Few
+2016-12-13 19:00:00,1481652000,Few Showers,1480864495,rain,31,Few Showers,Showers,,4600,4,2016-12-13T19:00:00+0100,37,Evening,WSW,,237,Few Showers,84,14,91,,11,fod_long_range_intraday,Tuesday,Few
+2016-12-14 01:00:00,1481673600,Showers,1480864495,rain,47,Showers,,,1100,4,2016-12-14T01:00:00+0100,38,Overnight,WSW,,241,Showers,72,13,91,,11,fod_long_range_intraday,Wednesday,Showers
+2016-12-14 07:00:00,1481695200,Showers,1480864495,rain,40,Showers,,,1100,5,2016-12-14T07:00:00+0100,39,Morning,WSW,,241,Showers,63,15,91,,11,fod_long_range_intraday,Wednesday,Showers
+2016-12-14 13:00:00,1481716800,Partly Cloudy,1480864495,rain,24,Partly Cloudy,Cloudy,,3000,5,2016-12-14T13:00:00+0100,40,Afternoon,WSW,,251,P Cloudy,54,15,84,,30,fod_long_range_intraday,Wednesday,Partly
+2016-12-14 19:00:00,1481738400,Partly Cloudy,1480864495,precip,7,Partly Cloudy,Cloudy,,2900,3,2016-12-14T19:00:00+0100,41,Evening,WSW,,248,P Cloudy,50,15,92,,29,fod_long_range_intraday,Wednesday,Partly

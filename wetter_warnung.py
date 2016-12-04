@@ -12,7 +12,7 @@ import pandas
 def wetter_check():
     # get weather forecast for the next week
     geoCodeWeather.wetterbericht('','Hasbergen')
-    daten = pandas.read_csv('test.csv')
+    daten = pandas.read_csv('weatherData.csv')
     
     # check if temperature exceeds limit 
     check = daten[(daten['temp']<5) | (daten['temp']>25)]

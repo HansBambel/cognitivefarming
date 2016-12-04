@@ -130,8 +130,9 @@ class queryWindow:
         self.bereichListbox = Listbox(master=self.gefahrenbereichLabelFrame)
         self.bereichListbox.delete(0, END)
         tmp = self.gefahrenstoffverordnung[self.gefahrenbereichListbox.selection_get()]
-        for k, area in enumerate(tmp[0].split(", ")):  # not a nice workaround
-            self.bereichListbox.insert(k, area)
+        if tmp != []:
+            for k, area in enumerate(tmp[0].split(", ")):  # not a nice workaround
+                self.bereichListbox.insert(k, area)
         self.bereichListbox.bind("<Double-1>", lambda l: self.getRegularie(l))
 
         self.bereichListbox.pack()

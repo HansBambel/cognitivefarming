@@ -51,9 +51,8 @@ def wetterbericht(street,city):
     df = df.set_index(time)
          
     list(df)
-    
-    #df.to_pickle('test.p')
-    df.to_csv('test.csv')
+
+    df.to_csv('weatherData.csv')
     #print(df)
 
 

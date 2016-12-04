@@ -34,12 +34,13 @@ def retrieveRankFunction(inp):
             resultingString = str(results.docs)
             description = re.search('</td><td><p dir="ltr">(.+?)</p></td></tr> <tr><td>',resultingString)
             info = description.group(1)
+            info2 = re.sub('<.*?>', '', info)
             #print(description.group(1))
         #print(info)
-        return(info)
+        return(info2)
 
     return 
 
 
-strr = retrieveRankFunction('NH679')
+strr = retrieveRankFunction('NT699')
 print(strr)

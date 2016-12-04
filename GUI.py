@@ -1,3 +1,9 @@
+'''
+@author: Kevin Trebing
+@email: ktrebing@uos.de
+
+'''
+
 from tkinter import *
 import retrieval
 
@@ -64,44 +70,44 @@ class queryWindow:
         self.queryWindow.configure(background="orange")
         self.queryWindow.focus()
         self.queryWindow.title("Anfrage")
-        self.queryWindow.geometry("1200x600")
+        self.queryWindow.geometry("1400x600")
 
         self.querySearchButton = Button(master=self.queryWindow, text="Suchen", command=self.searchQueryClick)
         self.searchLabelFrame = LabelFrame(master=self.queryWindow, text="Suchergebnisse")
         self.resultLabel = Label(master=self.searchLabelFrame)
         self.searchResults = Listbox(master=self.searchLabelFrame)
-        self.searchResults.bind("<Double-1>", lambda i: self.moreInfo(i))
+        self.searchResults.bind("<Double-1>", lambda i: self.getProductInfo(i))
 
         ##### arrangements #####
         self.mySearchOptions = searchOptions(master=self.queryWindow)
         self.querySearchButton.grid(row=5, column=2, sticky=N+S+E+W)
-        self.searchLabelFrame.grid(row=6, column=2, sticky=N+S+E+W)
+        self.searchLabelFrame.grid(row=6, column=2, sticky=N+E+W)
 
         ### in LabelFrame ###
         self.resultLabel.pack()
         self.searchResults.pack()
 
-    def moreInfo(self, infoProduct):
+    def getProductInfo(self, infoProduct):
         infoProduct = self.searchResults.selection_get()
         kultur = self.mySearchOptions.kultur.get()
         befall = self.mySearchOptions.befall.get()
-        wirkstoff, wirkstoffgehalt, zulassungsende, gefahrenstoffverordnung, hinweise \
+        wirkstoff, wirkstoffgehalt, zulassungsende, self.gefahrenstoffverordnung, hinweise \
             = retrieval.retrieveProductInfo(infoProduct, kultur, befall)
-        # TODO give to Judith's function
         #### Create ProductInfoFrame ####
         self.productInfoFrame = LabelFrame(master=self.queryWindow, text=infoProduct)
         self.wirkstoffLabel = Label(master=self.productInfoFrame, text="Wirkstoff: " + ", ".join(wirkstoff))
         self.wirkstoffGehaltLabel = Label(master=self.productInfoFrame, text="Wirkstoffgehalt: " + ", ".join(wirkstoffgehalt))
         self.zulassungsendeLabel = Label(master=self.productInfoFrame, text="Zulassungsende: " + ", ".join(zulassungsende))
-        self.hinweiseLabel = Label(master=self.productInfoFrame, text="Hinweise: " + ", ".join(hinweise), wraplengt=200)
+        self.hinweiseLabel = Label(master=self.productInfoFrame, text="Hinweise: " + ", ".join(hinweise), wraplengt=250)
 
         self.gefahrenstoffVerordnungLabelFrame = LabelFrame(master=self.productInfoFrame, text="Gefahrenstoffverordnung")
         self.gefahrenbereichListbox = Listbox(master=self.gefahrenstoffVerordnungLabelFrame)
         self.gefahrenbereichListbox.delete(0, END)
-        ### Liste alle gefahrenstoffberecihe auf ###
-        for i, bereich in enumerate(gefahrenstoffverordnung):
+        ### Liste alle gefahrenstoffbereiche auf ###
+        for i, bereich in enumerate(self.gefahrenstoffverordnung):
             self.gefahrenbereichListbox.insert(i, bereich)
         self.gefahrenbereichListbox.pack()
+        self.gefahrenbereichListbox.bind("<Double-1>", lambda j: self.getBereichsinfo(j))
 
 
         ### put in InfoFrame
@@ -113,6 +119,30 @@ class queryWindow:
 
         ### put in queryWindow
         self.productInfoFrame.grid(row=6, column=3, sticky=N+S+E+W)
+
+
+    def getBereichsinfo(self, val):
+        self.gefahrenbereichLabelFrame = LabelFrame(master=self.queryWindow, text="Gefahrenbereich")
+        self.bereichListbox = Listbox(master=self.gefahrenbereichLabelFrame)
+        self.bereichListbox.delete(0, END)
+        tmp = self.gefahrenstoffverordnung[self.gefahrenbereichListbox.selection_get()]
+        for k, area in enumerate(tmp[0].split(", ")):  # not a nice workaround
+            self.bereichListbox.insert(k, area)
+        self.bereichListbox.bind("<Double-1>", lambda l: self.getRegularie(l))
+
+        self.bereichListbox.pack()
+        # put in queryWindow
+        self.gefahrenbereichLabelFrame.grid(row=6, column=4, sticky=N+S+E+W)
+
+    def getRegularie(self, val):
+        reg = self.bereichListbox.selection_get()
+        # TODO call Justine's retrieveAndRank and gets Sound and string
+        regString = "dummy"
+        self.regFrame = LabelFrame(master=self.queryWindow, text=reg)
+        self.regLabel = Label(master=self.regFrame, text=regString, wraplengt=250)
+        self.regLabel.pack()
+
+        self.regFrame.grid(row=6, column=5, sticky=N+W+E)
 
     def searchQueryClick(self):
         resLabel=("Suche nach Pflanzenschutzmitteln für folgende Kultur: " + self.mySearchOptions.kultur.get() +

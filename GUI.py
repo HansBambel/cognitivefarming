@@ -55,19 +55,17 @@ class searchOptions:
             self.befall.set(self.befallDropdown["menu"].entrycget(0, "label"))
 
 
-def manageCropClick():
-    ##### Open ManageCropWindow #####
-    # TODO
-    print("lol")
+
 
 class queryWindow:
     def __init__(self):
         ##### Open QueryWindow #####
         self.queryWindow = Toplevel()
-        self.queryWindow.title("Query")
+        self.queryWindow.focus()
+        self.queryWindow.title("Anfrage")
         self.queryWindow.geometry("500x200")
 
-        self.querySearchButton = Button(master=self.queryWindow, text="Search", command=self.searchQueryClick)
+        self.querySearchButton = Button(master=self.queryWindow, text="Suchen", command=self.searchQueryClick)
 
         ##### arrangements #####
         self.mySearchOptions = searchOptions(master=self.queryWindow)
@@ -76,22 +74,35 @@ class queryWindow:
 
 
     def searchQueryClick(self):
-        print("searching in cultures: ", self.mySearchOptions.kultur.get(), " for the following pests: ",
-              self.mySearchOptions.befall.get())
+        print("Suche nach Pflanzenschutzmitteln für folgende Kultur: ", self.mySearchOptions.kultur.get(),
+              " mit folgenden Schadbefall: ", self.mySearchOptions.befall.get())
         print(retrieval.retrieveSchutzmittel(culture=self.mySearchOptions.kultur.get(),
                                              disease=self.mySearchOptions.befall.get()))
 
 
+class manageCropWindow:
+    def __init__(self):
+        self.manageCropWindow = Toplevel()
+        self.manageCropWindow.focus()
+        self.manageCropWindow.title("Planung der Ernte")
+        self.manageCropWindow.geometry("600x400")
+
 def queryClick():
+    ##### Open QueryWindow #####
     myQueryWindow = queryWindow()
 
+def manageCropClick():
+    ##### Open ManageCropWindow #####
+    myManageCropWindow = manageCropWindow()
+
+
 mainWindow = Tk()
-mainWindow.configure(background="black")
+mainWindow.configure(background="orange")
 mainWindow.title("Crop Planner")
 mainWindow.geometry("400x240")
 
-manageCropButton = Button(master=mainWindow, text="Manage Crop", command=manageCropClick)
-queryButton = Button(master=mainWindow, text="Get Info about regulations", command=queryClick)
+manageCropButton = Button(master=mainWindow, text="Ernte planen", command=manageCropClick)
+queryButton = Button(master=mainWindow, text="Pflanzenschutzregularien prüfen", command=queryClick)
 
 
 # manageCropButton.grid(row=0, rowspan=2,columnspan=4, sticky=N)

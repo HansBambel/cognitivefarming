@@ -28,7 +28,7 @@ def retrieveRankFunction(inp):
         #search_for = input("Was soll ich übersetzen?: ")
         search_for = inp
         if search_for == 'NG312' or search_for == 'SE1201'or search_for == 'SF6142'or search_for == 'NN400'or search_for == 'NW811':
-            info = 'Keine Information vorhanden. '
+            info2 = 'Keine Information vorhanden. '
         else:
             results = pysolr_client.search(search_for)
             resultingString = str(results.docs)
@@ -42,5 +42,5 @@ def retrieveRankFunction(inp):
     return 
 
 
-strr = retrieveRankFunction('NT699')
-print(strr)
+# strr = retrieveRankFunction('NT699')
+# print(strr)

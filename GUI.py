@@ -6,6 +6,9 @@
 
 from tkinter import *
 import retrieval
+import textToSpeech
+import retrieveRankFunction
+import wetter_warnung
 
 class searchOptions:
     def __init__(self, master):
@@ -15,7 +18,7 @@ class searchOptions:
         self.kultur.set("Futterrübe")
         self.kulturOptions = retrieval.retrieveCultures()  # get Cultures from Database
         self.kulturDropdown = OptionMenu(master, self.kultur, *self.kulturOptions, command=self.updateBefall)
-        self.kulturLabel = Label(master=master, text="Kultur")
+        self.kulturLabel = Label(master=master, text="Kultur", bg="orange")
 
         self.befall = StringVar(master)
         self.befall.set("")
@@ -23,7 +26,7 @@ class searchOptions:
         self.befallDropdown.configure(state=DISABLED)
         self.checkvar = IntVar()
         self.befallCheckbox = Checkbutton(master=master, text="Befall", variable=self.checkvar,
-                                     command=lambda: self.checkedBefall())
+                                     command=lambda: self.checkedBefall(), bg="orange")
 
         self.kulturLabel.grid(row=0, column=1)
         self.kulturDropdown.grid(row=0, column=2)
@@ -64,20 +67,24 @@ class searchOptions:
 class queryWindow:
     def __init__(self):
         ##### Open QueryWindow #####
+        bgcolor = "orange"
+        highlightcolor = "green"
         self.queryWindow = Toplevel()
-        self.queryWindow.configure(background="orange")
+        self.queryWindow.configure(background=bgcolor)
         self.queryWindow.focus()
         self.queryWindow.title("Anfrage")
         self.queryWindow.geometry("1400x600")
 
         self.querySearchButton = Button(master=self.queryWindow, text="Suchen", command=self.searchQueryClick)
         self.searchLabelFrame = LabelFrame(master=self.queryWindow, text="Suchergebnisse")
-        self.resultLabel = Label(master=self.searchLabelFrame)
+        self.resultLabel = Label(master=self.searchLabelFrame, wraplengt=200)
         self.searchResults = Listbox(master=self.searchLabelFrame)
         self.searchResults.bind("<Double-1>", lambda i: self.getProductInfo(i))
+        self.weatherLabel = Label(master=self.queryWindow, text=wetter_warnung.wetter_check(), wraplengt=200, bg=bgcolor)
 
         ##### arrangements #####
         self.mySearchOptions = searchOptions(master=self.queryWindow)
+        self.weatherLabel.grid(row=1, column=3, sticky=E+W)
         self.querySearchButton.grid(row=5, column=2, sticky=N+S+E+W)
         self.searchLabelFrame.grid(row=6, column=2, sticky=N+E+W)
 
@@ -134,13 +141,21 @@ class queryWindow:
 
     def getRegularie(self, val):
         reg = self.bereichListbox.selection_get()
-        # TODO call Justine's retrieveAndRank and gets Sound and string
-        regString = "dummy"
+        regString = retrieveRankFunction.retrieveRankFunction(reg)
+        # regString = "Philipp. Sprech doch mal endlich Hochdeutsch, du komischer Bayer. Am anderen Tisch gibt es viel bessere Hochdeutschsprechende Menschen."
+
         self.regFrame = LabelFrame(master=self.queryWindow, text=reg)
         self.regLabel = Label(master=self.regFrame, text=regString, wraplengt=250)
+        self.speakButton = Button(master=self.regFrame, text="Vorlesen", command=lambda: self.readWatson(regString))
+
         self.regLabel.pack()
+        self.speakButton.pack()
 
         self.regFrame.grid(row=6, column=5, sticky=N+W+E)
+
+    def readWatson(self, stringToRead):
+        textToSpeech.say_text(stringToRead)
+
 
     def searchQueryClick(self):
         resLabel=("Suche nach Pflanzenschutzmitteln für folgende Kultur: " + self.mySearchOptions.kultur.get() +
@@ -162,6 +177,8 @@ class manageCropWindow:
     def __init__(self):
         self.manageCropWindow = Toplevel()
         self.manageCropWindow.focus()
+        image = PhotoImage(file="pantera.gif")
+        w1 = Label(self.manageCropWindow, image=image).pack()
         self.manageCropWindow.configure(bg="orange")
         self.manageCropWindow.title("Planung der Ernte")
         self.manageCropWindow.geometry("600x400")
@@ -185,12 +202,8 @@ w1 = Label(mainWindow, image=logo).pack(side="bottom")
 manageCropButton = Button(master=mainWindow, text="Ernte planen", command=manageCropClick)
 queryButton = Button(master=mainWindow, text="Pflanzenschutzregularien prüfen", command=queryClick)
 
-
-# manageCropButton.grid(row=0, rowspan=2,columnspan=4, sticky=N)
-# queryButton.grid(row=3, rowspan=2, sticky=N)
 manageCropButton.pack(fill=BOTH, padx=10, pady=10)
 queryButton.pack(fill=BOTH, padx=10, pady=10)
-
 
 mainWindow.mainloop()
 

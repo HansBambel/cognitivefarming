@@ -75,18 +75,18 @@ def retrieveProductInfo(product,culture,befall):
         data = data[data['Schadorganismus'].str.contains(befall)]
     
     # extract information
-    wirkstoff = data['Wirkstoff'].to_string()
-    wirkstoffgehalt = data['Wirkstoffgehalt'].to_string()
-    zulassungsende = data['Zulassungsende'].to_string()
+    wirkstoff = list(set(data['Wirkstoff'].tolist()))
+    wirkstoffgehalt = list(set(data['Wirkstoffgehalt'].tolist()))
+    zulassungsende = list(set(data['Zulassungsende'].tolist()))
     
-    anwenderschutz = data['Anwenderschutz'].tolist()
-    gewässerschutz = data['Gewässerschutz'].tolist()
-    bienenschutz = data['Bienenschutz'].tolist()
-    nutzorganismen = data['Nutzorganismen'].tolist()
-    sonstiges = data['Sonstiges'].tolist()
+    anwenderschutz = list(set(data['Anwenderschutz'].tolist()))
+    gewässerschutz = list(set(data['Gewässerschutz'].tolist()))
+    bienenschutz = list(set(data['Bienenschutz'].tolist()))
+    nutzorganismen = list(set(data['Nutzorganismen'].tolist()))
+    sonstiges = list(set(data['Sonstiges'].tolist()))
     gefahrenstoffverordnung = {'Anwenderschutz': anwenderschutz, 'Gewässerschutz': gewässerschutz, 'Bienenschutz': bienenschutz, 'Nutzorganismen': nutzorganismen, 'Sonstiges': sonstiges}
     
-    hinweise = data['Anwendungshinweise'].to_string()
+    hinweise = list(set(data['Anwendungshinweise'].tolist()))
     
     return wirkstoff,wirkstoffgehalt,zulassungsende,gefahrenstoffverordnung,hinweise
 

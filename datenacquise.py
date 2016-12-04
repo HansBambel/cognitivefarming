@@ -25,8 +25,5 @@ database.loc[8] = ["Cymoxanil + Fludioxonil + Metalaxyl-M","WAKIL XL - 006500-00
 
 database.to_pickle('database.p')
 
-with open('database_python2.p', 'wb') as fp:
-    pickle.dump(database, fp, protocol=2)
-
-test=database[database['Kultur'].str.contains("Futterrübe")]
+test = database[database['Kultur'].str.contains("Futterrübe")]
 
